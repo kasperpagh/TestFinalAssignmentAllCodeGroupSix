@@ -40,7 +40,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "mongo", "jesus");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "USERNAME", "PASSWORD");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -92,7 +92,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "mongo", "jesus");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -111,8 +111,8 @@ public class MongoController implements I_DBController
                 {
                     Document doc = cities.next();
                     Document loco = (Document) doc.get("location");
-                    List<Double> coor = (ArrayList) loco.get("coordinates");
-                    list.add(new City(doc.getString("name"), new Coordinate(coor.get(1), coor.get(0))));
+                    List coor = (ArrayList) loco.get("coordinates");
+                    list.add(new City(doc.getString("name"), new Coordinate( Double.valueOf(coor.get(1).toString()) ,Double.valueOf(coor.get(0).toString()))));
                 }
             }
             return list;
@@ -137,7 +137,7 @@ public class MongoController implements I_DBController
             MongoConnector mcHammer = new MongoConnector();
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "mongo", "jesus");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -178,7 +178,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "mongo", "jesus");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -216,8 +216,8 @@ public class MongoController implements I_DBController
                     {
                         Document doc = cities.next();
                         Document loco = (Document) doc.get("location");
-                        List<Double> coor = (ArrayList) loco.get("coordinates");
-                        list.add(new City(doc.getString("name"), new Coordinate(coor.get(1), coor.get(0))));
+                        List coor = (ArrayList) loco.get("coordinates");
+                        list.add(new City(doc.getString("name"), new Coordinate( Double.valueOf(coor.get(1).toString()) ,Double.valueOf(coor.get(0).toString()))));
                     }
                 }
             }
@@ -247,7 +247,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "mongo", "jesus");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "usernAme", "Password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {

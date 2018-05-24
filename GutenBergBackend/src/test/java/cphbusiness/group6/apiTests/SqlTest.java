@@ -117,9 +117,12 @@ public class SqlTest
 //        ValidatableResponse response = given().when().get("/api/psql/booksplot/{author}", author).then();
         ValidatableResponse response = given().port(port).basePath("/api/psql/booksplot/").get(author).then().statusCode(200);
 
-        List list = response.extract().jsonPath().get();
-        assertThat(list.size(), equalTo(3));
-        assertThat(list.get(0).toString(), equalTo("{releaseDate=2005-10-01, author={booksWritten=null, name=Hayley, William}, textContent=null, title=Ballads, Founded on Anecdotes Relating to Animals}"));
+        List list = response.extract().jsonPath().getList("cities");
+        List list2 = response.extract().jsonPath().getList("books");
+        assertThat(list2.size(), equalTo(3));
+        assertThat(list2.get(0).toString(), equalTo("{releaseDate=2005-10-01, author={booksWritten=null, name=Hayley, William}, textContent=null, title=Ballads, Founded on Anecdotes Relating to Animals}"));
+        assertThat(list.size(), equalTo(40));
+        assertThat(list.get(0).toString(), equalTo("{cityName=As, geoLocation={lang=5.58453, lat=51.00755}}"));
     }
 
     @Test

@@ -117,9 +117,12 @@ public class MongoTest
 //        ValidatableResponse response = given().when().get("/api/mongo/booksplot/{author}", author).then();
         ValidatableResponse response = given().port(port).basePath("/api/mongo/booksplot/").get(author).then().statusCode(200);
 
-        List list = response.extract().jsonPath().get();
-        assertThat(list.size(), equalTo(3));
-        assertThat(list.get(0).toString(), equalTo("{releaseDate=2003-11-01, author={booksWritten=null, name=Hayley, William}, textContent=null, title=The Eulogies of Howard: A Vision}"));
+        List list = response.extract().jsonPath().getList("cities");
+        List list2 = response.extract().jsonPath().getList("books");
+        assertThat(list2.size(), equalTo(3));
+        assertThat(list2.get(0).toString(), equalTo("{releaseDate=2003-11-01, author={booksWritten=null, name=Hayley, William}, textContent=null, title=The Eulogies of Howard: A Vision}"));
+        assertThat(list.size(), equalTo(40));
+        assertThat(list.get(0).toString(), equalTo("{cityName=Till, geoLocation={lang=35.21293, lat=32.20068}}"));
     }
 
     @Test

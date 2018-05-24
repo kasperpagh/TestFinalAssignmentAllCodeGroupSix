@@ -10,7 +10,9 @@ import org.openqa.selenium.json.Json;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MongoAPI
@@ -36,10 +38,17 @@ public class MongoAPI
 
     @CrossOrigin
     @RequestMapping(value = "/api/mongo/booksplot/{author}", method = RequestMethod.GET, produces = "application/json")
-    public List<I_Book> getBooksAndPlot(@PathVariable("author") String author)
+    public Map getBooksAndPlot(@PathVariable("author") String author)
     {
 
-        return mcHammer.getAllBooksWrittenByAuthor(author);
+        List<I_Book> list = mcHammer.getAllBooksWrittenByAuthor(author);
+        List<I_City> list2 = mcHammer.getCitiesFromManyBooks(list);
+
+        Map<String, List> map = new HashMap();
+        map.put("books", list);
+        map.put("cities", list2);
+
+        return map;
     }
 
     @CrossOrigin
