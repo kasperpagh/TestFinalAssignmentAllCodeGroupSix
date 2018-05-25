@@ -3,3 +3,5 @@
 2. save as cache in dir
 3. npm install
 4. node reader_v2.js
+
+BEWARE: this script is multithreaded and is prone to using all cpu power while working
