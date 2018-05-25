@@ -14,18 +14,15 @@ class MapCity extends Component {
                 </GoogleMap>
             ))    
         
-        if (this.props.data && this.props.data.length > 0 && (this.props.selectedQuery === "2" || this.props.selectedQuery === "3")){
             return (
                 <Map
                     isMarkerShown
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCu7L1Cc212OZKjqBpEStL6z97IGjLeWt8&v=3.exp&libraries=geometry,drawing,places"
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ width: '100%', height: `900px`, position: 'relative'}} />}
                     mapElement={<div style={{ height: `90%` }} />}
                 />
             )
-        } 
-        return <span></span>
     }
 }
 
