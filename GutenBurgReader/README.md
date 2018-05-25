@@ -1,3 +1,5 @@
-mongoimport --db booktest --collection auths --file mongo_auth.json
-mongoimport --db booktest --collection books --file mongo_book.json --jsonArray
-node --max_old_space_size=2000000 .\reader_v2.js
+# how to
+1. get cache from https://www.gutenberg.org/wiki/Gutenberg:Feeds
+2. save as cache in dir
+3. npm install
+4. node reader_v2.js
