@@ -5,7 +5,8 @@ import { withStyles, CircularProgress, TableHead, Table, TableRow, TableCell, Ta
 import Input from '@material-ui/core/Input';
 import Send from '@material-ui/icons/Send';
 import Button from '@material-ui/core/Button';
-import GoogleApiWrapper from './Map';
+//import GoogleApiWrapper from './Map';
+import MapCity from './MapCity';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
@@ -79,8 +80,8 @@ class InputBook extends Component {
 
         return (
             <Paper className={classes.root}>
-                <Input placeholder="Input Book Title" onChange={this.updateBook} value={this.state.input} className={classes.input}/>
-                <Button className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
+                <Input id="book" placeholder="Input Book Title" onChange={this.updateBook} value={this.state.input} className={classes.input}/>
+                <Button id="run" className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
                     Query
                     <Send className={classes.rightIcon}></Send>
                 </Button>
@@ -93,7 +94,7 @@ class InputBook extends Component {
                 </Typography>
                 {this.state.err && <p>{this.state.err.message}</p>}
                 {this.state.loading && <CircularProgress className={classes.loader}/>}
-                {this.state.res.length>0 && <GoogleApiWrapper data={this.state.res}></GoogleApiWrapper>}
+                {this.state.res.length>0 && <MapCity data={this.state.res}></MapCity>}
             </Paper> 
         );
       }

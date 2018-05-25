@@ -85,9 +85,9 @@ class InputGeo extends Component {
 
         return (
             <Paper className={classes.root}>
-                <Input placeholder="Input Latitude" onChange={this.updateLat} value={this.state.lat} className={classes.input}/>
-                <Input placeholder="Input Longitude" onChange={this.updateLong} value={this.state.long} className={classes.input}/>
-                <Button className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
+                <Input id="lat" placeholder="Input Latitude" onChange={this.updateLat} value={this.state.lat} className={classes.input}/>
+                <Input id="lng" placeholder="Input Longitude" onChange={this.updateLong} value={this.state.long} className={classes.input}/>
+                <Button id="run" className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
                     Query
                     <Send className={classes.rightIcon}></Send>
                 </Button>

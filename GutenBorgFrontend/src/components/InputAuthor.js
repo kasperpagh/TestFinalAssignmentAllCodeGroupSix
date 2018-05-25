@@ -5,7 +5,8 @@ import { withStyles, CircularProgress, TableHead, Table, TableRow, TableCell, Ta
 import Input from '@material-ui/core/Input';
 import Send from '@material-ui/icons/Send';
 import Button from '@material-ui/core/Button';
-import GoogleApiWrapper from './Map';
+//import GoogleApiWrapper from './Map';
+import MapCity from './MapCity';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
@@ -42,7 +43,7 @@ class InputAuthor extends Component {
         }
     }
 
-    updateBook = (e) => {
+    updateAuthor = (e) => {
         //this.props.dbChange(e.target.value);
         this.setState({input: e.target.value});
     }
@@ -51,9 +52,7 @@ class InputAuthor extends Component {
         console.log("check")
         this.callApi()
             .then(res => {
-                console.log(res)
                 this.setState({list: res.books, plot: res.cities, loading: false});
-                this.setState({loading: false});
             })
             .catch(err => {
                 this.setState({err: err, loading: false})
@@ -82,8 +81,8 @@ class InputAuthor extends Component {
 
         return (
             <Paper className={classes.root}>
-                <Input placeholder="Input Author Name" onChange={this.updateBook} value={this.state.input} className={classes.input}/>
-                <Button className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
+                <Input id="author" placeholder="Input Author Name" onChange={this.updateAuthor} value={this.state.input} className={classes.input}/>
+                <Button id="run" className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
                     Query
                     <Send className={classes.rightIcon}></Send>
                 </Button>
@@ -96,7 +95,7 @@ class InputAuthor extends Component {
                 </Typography>
                 {this.state.err && <p>{this.state.err.message}</p>}
                 {this.state.loading && <CircularProgress className={classes.loader}/>}
-                {this.state.plot.length>0 && <GoogleApiWrapper data={this.state.plot}></GoogleApiWrapper>}
+                {this.state.plot.length>0 && <MapCity data={this.state.plot}></MapCity>}
                 <Table>
                     <TableHead>
                         <TableRow>

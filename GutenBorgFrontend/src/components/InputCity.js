@@ -40,7 +40,7 @@ class InputCity extends Component {
         }
     }
 
-    updateBook = (e) => {
+    updateCity = (e) => {
         //this.props.dbChange(e.target.value);
         this.setState({input: e.target.value});
     }
@@ -77,8 +77,8 @@ class InputCity extends Component {
 
         return (
             <Paper className={classes.root}>
-                <Input placeholder="Input City Name" onChange={this.updateBook} value={this.state.input} className={classes.input}/>
-                <Button className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
+                <Input id="city" placeholder="Input City Name" onChange={this.updateCity} value={this.state.input} className={classes.input}/>
+                <Button id="run" className={classes.button} variant="raised" color="primary" onClick={this.runQuery}>
                     Query
                     <Send className={classes.rightIcon}></Send>
                 </Button>

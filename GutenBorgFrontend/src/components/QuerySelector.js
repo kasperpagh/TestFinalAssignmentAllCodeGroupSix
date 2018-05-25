@@ -55,9 +55,9 @@ class QuerySelector extends Component {
         return (
             <Paper className={classes.root}>
                 <Tabs value={this.state.db} onChange={this.updateDB} centered>
-                    <Tab value="mongo" label="MongoDB"/>
-                    <Tab value="psql" label="PostgreSQL"/>
-                    <Tab value="neo4j" label="Neo4J"/>
+                    <Tab id="mongo" value="mongo" label="MongoDB"/>
+                    <Tab id="psql" value="psql" label="PostgreSQL"/>
+                    <Tab id="neo4j" value="neo4j" label="Neo4J"/>
                 </Tabs>
                 <form className={classes.root} autoComplete="off">
                 
@@ -69,10 +69,10 @@ class QuerySelector extends Component {
                         value={this.state.query}
                         onChange={this.updateQuery}
                     >
-                        <FormControlLabel value="1" control={<Radio color="primary" />} label="1. Find books that mention city" />
-                        <FormControlLabel value="2" control={<Radio color="primary" />} label="2. Plot cities mentioned by a book" />
-                        <FormControlLabel value="3" control={<Radio color="primary" />} label="3. Plot cities mentioned by books written by an author" />
-                        <FormControlLabel value="4" control={<Radio color="primary" />} label="4. List all books that mention cities in the vicinity of a geolocation" />
+                        <FormControlLabel id="1" value="1" control={<Radio color="primary" />} label="1. Find books that mention city" />
+                        <FormControlLabel id="2" value="2" control={<Radio color="primary" />} label="2. Plot cities mentioned by a book" />
+                        <FormControlLabel id="3" value="3" control={<Radio color="primary" />} label="3. Plot cities mentioned by books written by an author" />
+                        <FormControlLabel id="4" value="4" control={<Radio color="primary" />} label="4. List all books that mention cities in the vicinity of a geolocation" />
                     </RadioGroup>
                 </FormControl>
             </form>
