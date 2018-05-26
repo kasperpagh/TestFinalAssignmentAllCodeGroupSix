@@ -40,7 +40,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "USERNAME", "PASSWORD");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017","username","password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -92,7 +92,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "username","password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -137,7 +137,7 @@ public class MongoController implements I_DBController
             MongoConnector mcHammer = new MongoConnector();
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017","username","password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -178,7 +178,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "Username", "Password");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017","username","password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {
@@ -247,7 +247,7 @@ public class MongoController implements I_DBController
 
             try
             {
-                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "usernAme", "Password");
+                hammerTime = mcHammer.getMongoDBConnection("167.99.237.199:27017", "username","password");
             }
             catch (IncorrectUsrNameOrPasswordException e)
             {

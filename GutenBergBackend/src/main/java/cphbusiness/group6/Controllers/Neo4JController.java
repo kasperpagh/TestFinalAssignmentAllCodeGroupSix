@@ -23,7 +23,7 @@ public class Neo4JController implements I_DBController
 
         Neo4JConnector theOne = new Neo4JConnector();
 
-        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username", "password");
+        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username","password");
 
 
         try {
@@ -53,7 +53,7 @@ public class Neo4JController implements I_DBController
     {
         Neo4JConnector theOne = new Neo4JConnector();
 
-        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username", "password");
+        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username","password");
 
 
         try {
@@ -81,7 +81,7 @@ public class Neo4JController implements I_DBController
     {
         Neo4JConnector theOne = new Neo4JConnector();
 
-        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username", "password");
+        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username","password");
 
 
         try {
@@ -108,10 +108,11 @@ public class Neo4JController implements I_DBController
     {
         Neo4JConnector theOne = new Neo4JConnector();
 
-        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username", "password");
+        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username","password");
 
         String arr = "";
         for (I_Book book :books) {
+            String title = book.getTitle().replaceAll(" ", "&nbsp");
             if(arr != "") {
                 arr += ",'" + book.getTitle() + "'";
             }else{
@@ -122,7 +123,7 @@ public class Neo4JController implements I_DBController
         try {
             StatementResult result;
 
-            result = session.run("MATCH (b:book)-[:Mentions]->(a :city) where b.name IN ["+arr+"] return distinct a");
+            result = session.run("MATCH (c:author {name:'"+books.get(0).getAuthor().getName()+"'})-[:Written_by]->(b:book)-[:Mentions]->(a :city) return distinct a");
 
             ArrayList<I_City> city = new ArrayList();
 
@@ -143,7 +144,7 @@ public class Neo4JController implements I_DBController
     {
         Neo4JConnector theOne = new Neo4JConnector();
 
-        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687", "username", "password");
+        Session session = theOne.getNeo4JConnection("bolt://167.99.237.199:7687","username","password");
 
 
         try {

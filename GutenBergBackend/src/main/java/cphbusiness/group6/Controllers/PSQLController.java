@@ -32,7 +32,7 @@ public class PSQLController implements I_DBController
         Connection con = null;
         try
         {
-            con = pCon.getPSQLConnection("167.99.237.199:5432", "username", "password");
+            con = pCon.getPSQLConnection("167.99.237.199:5432", "username","password");
         }
         catch (SQLException e)
         {
@@ -91,7 +91,7 @@ public class PSQLController implements I_DBController
         Connection con = null;
         try
         {
-            con = pCon.getPSQLConnection("167.99.237.199:5432", "username", "password");
+            con = pCon.getPSQLConnection("167.99.237.199:5432","username","password");
         }
         catch (SQLException e)
         {
@@ -145,7 +145,7 @@ public class PSQLController implements I_DBController
         Connection con = null;
         try
         {
-            con = pCon.getPSQLConnection("167.99.237.199:5432", "username", "password");
+            con = pCon.getPSQLConnection("167.99.237.199:5432","username","password");
         }
         catch (SQLException e)
         {
@@ -207,14 +207,15 @@ public class PSQLController implements I_DBController
 
         String query3 = "Select t_city.name,t_city.latitude,t_city.longitude From t_city " +
                 "Where t_city.id In (Select t_ment.city_ID From t_ment Where t_ment.book_ID In " +
-                "(Select t_book.id from t_book Where t_book.name IN (" + arr + "))) " +
+                "(Select t_book.id from t_book Where t_book.auth_ID IN " +
+                "(Select t_auth.id From t_auth where t_auth.name = '" + books.get(0).getAuthor().getName() + "')))" +
                 "Order By t_city.name";
 
         PSQLConnector pCon = new PSQLConnector();
         Connection con = null;
         try
         {
-            con = pCon.getPSQLConnection("167.99.237.199:5432", "username", "password");
+            con = pCon.getPSQLConnection("167.99.237.199:5432","username","password");
         }
         catch (SQLException e)
         {
@@ -276,7 +277,7 @@ public class PSQLController implements I_DBController
         Connection con = null;
         try
         {
-            con = pCon.getPSQLConnection("167.99.237.199:5432", "username", "password");
+            con = pCon.getPSQLConnection("167.99.237.199:5432","username","password");
         }
         catch (SQLException e)
         {

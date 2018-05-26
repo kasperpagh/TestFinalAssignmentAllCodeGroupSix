@@ -30,7 +30,7 @@ public class PsqlControllerTest {
         PSQLConnector psql = new PSQLConnector();
         pc = new PSQLController();
         try {
-            con = psql.getPSQLConnection("167.99.237.199:5432","postgres", "jesus" );
+            con = psql.getPSQLConnection("167.99.237.199:5432","username","password");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IncorrectUsrNameOrPasswordException e) {

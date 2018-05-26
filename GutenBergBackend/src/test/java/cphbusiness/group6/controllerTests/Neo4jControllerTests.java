@@ -31,7 +31,7 @@ public class Neo4jControllerTests {
     public static void setup(){
         morpheus = new Neo4JConnector();
         nazi = new Neo4JController();
-        con = morpheus.getNeo4JConnection("bolt://167.99.237.199:7687", "neo4j", "jesus");
+        con = morpheus.getNeo4JConnection("bolt://167.99.237.199:7687", "username","password");
 
     }
 

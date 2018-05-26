@@ -99,7 +99,7 @@ class InputGeo extends Component {
                     Results:
                 </Typography>
                 {this.state.err && <p>{this.state.err.message}</p>}
-                {this.state.loading && <CircularProgress className={classes.loader}/>}
+                {this.state.loading && <CircularProgress id={"loader"} className={classes.loader}/>}
                 <Table>
                     <TableHead>
                         <TableRow>
